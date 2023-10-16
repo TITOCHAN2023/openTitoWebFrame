@@ -1,0 +1,272 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Lato, Arial, sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 40%;
+    height: auto;
+}
+
+h1 {
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #009172;
+    font-size: 48px;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+p {
+    font-weight: 300;
+    font-family: Lato, sans-serif;
+    letter-spacing: 3px;
+    font-size: 25px;
+    color: #009172;
+}
+
+li {
+    font-weight: 300;
+    font-family: Lato, sans-serif;
+    letter-spacing: 3px;
+    font-size: 25px;
+    color: #ffffff;
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(60deg, #079274 0%, rgb(8, 58, 129) 100%);
+    color: rgb(255, 255, 255);
+}
+
+.inner-header {
+    height: 10vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+
+.parallax>use {
+    /* 使use元素执行move-forever动画 */
+    animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.parallax>use:nth-child(1) {
+    /* 延迟2秒启动动画  */
+    animation-delay: -2s;
+    /* 设置动画持续时间为7秒 */
+    animation-duration: 7s;
+}
+
+.parallax>use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+}
+
+.parallax>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+}
+
+.parallax>use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px, 0, 0);
+    }
+    100% {
+        transform: translate3d(85px, 0, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .waves {
+        height: 40px;
+        min-height: 40px;
+    }
+    .content {
+        height: 30vh;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    img {
+        width: 60%;
+        height: auto;
+    }
+}
+
+#message-box {
+    border: 5px solid #fffafa00;
+    padding: 10px;
+    width: 60%;
+    height: 320px;
+    overflow-y: scroll;
+    margin: 20px auto;
+    background-color: #ffffff00;
+}
+
+#message-input,
+#cardnumber-input {
+    width: 60%;
+    height: 40px;
+    margin: 10px;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+}
+
+button {
+    cursor: pointer;
+    position: relative;
+    width: 20%;
+    height: 80px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: Lato, sans-serif;
+    letter-spacing: 1px;
+    font-size: 30px;
+    background: rgba(124, 124, 124, 0);
+    border: 0px solid rgb(255, 255, 255);
+    border-radius: 18px;
+    transition: .35s;
+    box-shadow: 0 0 0px rgb(11, 114, 114);
+}
+
+button:hover {
+    z-index: 1;
+    border-color: transparent;
+    background: linear-gradient( 90deg, #00eeff, #fff200, #00eeff);
+    background-size: 400%;
+    box-shadow: 0 0 15px rgb(11, 114, 114);
+    animation: glow 12s linear forwards;
+    transform: scale(1.05);
+}
+
+@media (max-width: 1140px) {
+    button {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 950px) {
+    button {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    button {
+        font-size: 18px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 705px) {
+    button {
+        font-size: 16px;
+        height: 55px;
+    }
+}
+
+@media (max-width: 600px) {
+    button {
+        font-size: 15px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 300px) {
+    button {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1140px) {
+    p {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 950px) {
+    p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 300px) {
+    p {
+        font-size: 8px;
+    }
+}
+
+@keyframes glow {
+    from {
+        background-position: 0%;
+    }
+    to {
+        background-position: 400%;
+    }
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    background: inherit;
+    filter: blur(36px);
+    opacity: 0;
+    transition: .4s ease-out;
+}
+
+button:hover::before {
+    opacity: 1;
+    z-index: -1;
+}

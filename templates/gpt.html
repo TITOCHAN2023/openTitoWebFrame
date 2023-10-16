@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/static/pic/logo.png" href="/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秘书</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bgm.css')}}">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="inner-header flex">
+            <h1>秘书</h1>
+        </div>
+        <div>
+
+            <div id="message-box">
+                <p>
+
+
+                </p>
+                <p>仅做学习用途</p>
+            </div>
+            <div class="input">
+
+                <p></p> <input type="text" id="message-input" placeholder />
+            </div>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0"
+                            fill="rgba(255,255,255,0.7)" />
+                        <use xlink:href="#gentle-wave" x="48" y="3"
+                            fill="rgba(255,255,255,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5"
+                            fill="rgba(255,255,255,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                    </g>
+
+                </svg>
+        </div>
+    </div>
+
+    <div class="input-group" align="center">
+        <div class="button">
+            <button onclick="sendMessage()">SEND</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+    <script>
+        const button = document.querySelector('button');
+        const messageInput = document.getElementById('message-input');
+        const messageBox = document.getElementById('message-box');
+
+        function receiveMessage(message) {
+            messageBox.innerHTML += '<p>' + responseMessage + '</p>';
+            messageBox.innerHTML += '<p></p>';
+        }
+
+        function sendMessage() {
+
+            fetch('/send', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                        'message': messageInput.value
+                    }),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const responseMessage = data.msg;
+                    console.log(receiveMessage);
+                    messageBox.innerHTML += '<p>' + responseMessage + '</p>';
+                    messageBox.innerHTML += '<p></p>';
+                });
+            messageBox.innerHTML += '<p>' + messageInput.value + '</p>';
+            messageInput.value = '';
+        };
+    </script>
+</body>
+
+</html>
